@@ -24,7 +24,7 @@ public class Main {
             client.setName(scn.nextLine());
             break;
         }
-        if (roomsList.size() != 0 && roomsList.get(roomsList.size() - 1).getClientB() == null) {
+        if (roomsList.size() != 0 && !roomsList.get(roomsList.size() - 1).getClients()[1]) {
             roomsList.get(roomsList.size() - 1).addClient(client);
             client.setRoom(roomsList.get(roomsList.size() - 1));
             client.getRoom().sendA(client.getName() + " connected");

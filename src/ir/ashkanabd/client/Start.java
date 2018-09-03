@@ -29,7 +29,6 @@ public class Start {
         });
         thread.start();
         while (true) {
-            System.out.print("You : ");
             pw.println(scanner.nextLine());
         }
     }

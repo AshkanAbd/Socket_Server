@@ -7,18 +7,21 @@ public class Room {
     private Client clientB;
     private PrintWriter outA;
     private PrintWriter outB;
+    private boolean clients[] = {false, false};
 
     public Room(Client clientA, Client clientB) {
         this.clientA = clientA;
         this.clientB = clientB;
         outA = new PrintWriter(clientA.getOutStream(), true);
         outB = new PrintWriter(clientB.getOutStream(), true);
+        clients[0] = true;
+        clients[1] = true;
     }
 
     public Room(Client clientA) {
         this.clientA = clientA;
         this.outA = new PrintWriter(clientA.getOutStream(), true);
-        clientB = null;
+        clients[0] = true;
     }
 
     boolean isA(Client client) {
@@ -45,6 +48,11 @@ public class Room {
     void addClient(Client clientB) {
         this.clientB = clientB;
         outB = new PrintWriter(clientB.getOutStream(), true);
+        clients[1] = true;
+    }
+
+    public boolean[] getClients() {
+        return clients;
     }
 
     public Client getClientB() {
